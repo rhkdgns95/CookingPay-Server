@@ -29,6 +29,7 @@ type EmailSignInResponse {
 
 type Query {
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type EmailSignUpResponse {
@@ -39,6 +40,12 @@ type EmailSignUpResponse {
 
 type Mutation {
   EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
 }
 
 type User {

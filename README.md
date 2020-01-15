@@ -9,6 +9,7 @@
 [x] EmailSignIn
 [x] JWT - createJWT
 [x] JWT - decodeJWT
+[x] GetMyProfile, Middleware - privateResolvers
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.
@@ -21,3 +22,4 @@
 8. yarn add class-validator
 9. yarn add bcryptjs @types/bcryptjs
 10. yarn add jsonwebtoken @types/jsonwebtoken
+11. yarn add cors helmet morgan @types/morgan @types/helmet
