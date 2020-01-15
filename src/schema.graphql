@@ -1,0 +1,15 @@
+type GetUsersResponse {
+  ok: Boolean!
+  error: String!
+}
+
+type Query {
+  GetUsers: GetUsersResponse!
+}
+
+type User {
+  id: Int!
+  name: String!
+  createdAt: String!
+  updatedAt: String
+}
