@@ -1,6 +1,9 @@
-import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, Entity } from "typeorm";
+import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, Entity, OneToMany } from "typeorm";
+import Post from "../Post/Post";
+import Donation from "../Donation/Donation";
+import { IsEmail } from "class-validator";
 
-@Entity()
+@Entity('users')
 class User extends BaseEntity {
     
     @PrimaryGeneratedColumn()
@@ -8,6 +11,19 @@ class User extends BaseEntity {
 
     @Column('text')
     name: string;
+    
+    @Column('text')
+    @IsEmail()
+    email: string;
+    
+    @Column('text')
+    password: string;
+    
+    @OneToMany(type => Post, post => post.writer)
+    posts: Post[];
+
+    @OneToMany(type => Donation, donation => donation.post)
+    donations: Donation[];
 
     @CreateDateColumn()
     createdAt: string;

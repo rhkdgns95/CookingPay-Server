@@ -4,6 +4,7 @@
 ## Todo
 [x] Graphql-Typescript Settings.
 [x] Connection DB - typeorm, .env
+[x] Entities - User, Post, Donation
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.
@@ -13,3 +14,4 @@
 5. yarn add @babel/runtime -> babel-runtime
 6. yarn add dotenv
 7. yarn add pg
+8. yarn add class-validator

@@ -1,0 +1,12 @@
+type Post {
+    id: Int!
+    text: String!
+    
+    donations: [Donation]
+    writerId: Int
+    writer: User!
+    getAmounts: Int
+
+    createdAt: String!
+    updatedAt: String
+}

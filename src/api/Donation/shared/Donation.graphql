@@ -1,0 +1,14 @@
+type Donation {
+    id: Int!
+    amount: String!
+    imp_uid: String!
+    
+    contributorId: Int
+    contributor: User!
+    
+    postId: Int
+    post: Post
+
+    createdAt: String!
+    updatedAt: String
+}

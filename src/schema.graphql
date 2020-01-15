@@ -1,3 +1,26 @@
+type Donation {
+  id: Int!
+  amount: String!
+  imp_uid: String!
+  contributorId: Int
+  contributor: User!
+  postId: Int
+  post: Post
+  createdAt: String!
+  updatedAt: String
+}
+
+type Post {
+  id: Int!
+  text: String!
+  donations: [Donation]
+  writerId: Int
+  writer: User!
+  getAmounts: Int
+  createdAt: String!
+  updatedAt: String
+}
+
 type GetUsersResponse {
   ok: Boolean!
   error: String!
@@ -10,6 +33,10 @@ type Query {
 type User {
   id: Int!
   name: String!
+  posts: [Post]
+  email: String!
+  password: String!
+  donations: [Donation]
   createdAt: String!
   updatedAt: String
 }

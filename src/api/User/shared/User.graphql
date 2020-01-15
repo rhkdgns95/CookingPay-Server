@@ -1,6 +1,10 @@
 type User {
     id: Int!
     name: String!
+    posts: [Post]
+    email: String!
+    password: String!
+    donations: [Donation]
     createdAt: String!
     updatedAt: String
 }
