@@ -2,16 +2,18 @@ import { Resolvers } from "../../../types/resolvers";
 import { EmailSignUpMutationArgs, EmailSignUpResponse } from "../../../types/graph";
 import { validate } from "class-validator";
 import User from "../../../entities/User/User";
+import { createJWT } from "../../../utils/createJWT";
 
 /**
  *  Validator
  *  [1] 존재하는 이메일
  *  [2] 이메일 형식
+ *  [3] <예정사항> - name, email, password 의 문자열 길이 확인
  */
 const resolvers: Resolvers = {
     Mutation: {
         EmailSignUp: async (_, args: EmailSignUpMutationArgs): Promise<EmailSignUpResponse> => {
-            const { email, password } = args;
+            const { email } = args;
             try {
                 const existUser: User | undefined = await User.findOne({
                     email
@@ -32,10 +34,11 @@ const resolvers: Resolvers = {
                         };
                     }
                     await user.save();
+                    const token = createJWT(user.id);
                     return {
                         ok: true,
                         error: null,
-                        token: "Comming soon"
+                        token
                     };
 
                 } else {

@@ -1,6 +1,7 @@
 import { Resolvers } from "../../../types/resolvers";
 import { EmailSignInQueryArgs, EmailSignInResponse } from "../../../types/graph";
 import User from "../../../entities/User/User";
+import { createJWT } from "../../../utils/createJWT";
 
 const resolvers: Resolvers = {
     Query: {
@@ -19,10 +20,11 @@ const resolvers: Resolvers = {
                             token: null
                         };
                     } else {
+                        const token = createJWT(user.id);
                         return {
                             ok: true,
                             error: null,
-                            token: "comming soon"
+                            token
                         };
                     } 
                 } else {

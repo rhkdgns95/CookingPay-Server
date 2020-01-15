@@ -7,6 +7,7 @@
 [x] Entities - User, Post, Donation
 [x] User - hashPassword, EmailSignUp
 [x] EmailSignIn
+[x] JWT - createJWT
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.
@@ -18,3 +19,4 @@
 7. yarn add pg
 8. yarn add class-validator
 9. yarn add bcryptjs @types/bcryptjs
+10. yarn add jsonwebtoken @types/jsonwebtoken
