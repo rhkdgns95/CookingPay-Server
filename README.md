@@ -5,6 +5,7 @@
 [x] Graphql-Typescript Settings.
 [x] Connection DB - typeorm, .env
 [x] Entities - User, Post, Donation
+[x] User - hashPassword, EmailSignUp
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.
@@ -15,3 +16,4 @@
 6. yarn add dotenv
 7. yarn add pg
 8. yarn add class-validator
+9. yarn add bcryptjs @types/bcryptjs

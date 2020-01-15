@@ -1,8 +1,0 @@
-type GetUsersResponse {
-    ok: Boolean!
-    error: String!
-}
-
-type Query {
-    GetUsers: GetUsersResponse!
-}
