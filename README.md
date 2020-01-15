@@ -8,6 +8,7 @@
 [x] User - hashPassword, EmailSignUp
 [x] EmailSignIn
 [x] JWT - createJWT
+[x] JWT - decodeJWT
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.
