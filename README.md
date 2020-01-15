@@ -6,6 +6,7 @@
 [x] Connection DB - typeorm, .env
 [x] Entities - User, Post, Donation
 [x] User - hashPassword, EmailSignUp
+[x] EmailSignIn
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.

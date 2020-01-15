@@ -21,6 +21,16 @@ type Post {
   updatedAt: String
 }
 
+type EmailSignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Query {
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+}
+
 type EmailSignUpResponse {
   ok: Boolean!
   error: String
@@ -29,15 +39,6 @@ type EmailSignUpResponse {
 
 type Mutation {
   EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
-}
-
-type GetUsersResponse {
-  ok: Boolean!
-  error: String!
-}
-
-type Query {
-  GetUsers: GetUsersResponse!
 }
 
 type User {
