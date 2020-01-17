@@ -1,0 +1,6 @@
+type PostImage {
+    id: Int!
+    url: String!
+    postId: Int
+    post: Post!
+}

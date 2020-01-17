@@ -1,6 +1,7 @@
-import { BaseEntity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, ManyToOne } from "typeorm";
+import { BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, ManyToOne } from "typeorm";
 import User from "../User/User";
 import Donation from "../Donation/Donation";
+import PostImage from "./PostImage";
 
 /**
  *  수정예정사항 
@@ -9,11 +10,17 @@ import Donation from "../Donation/Donation";
 
 @Entity()
 class Post extends BaseEntity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column('text')
-    text: string;
+    title: string;
+
+    @Column('text')
+    description: string;
+
+    @OneToMany(type => PostImage, postImage => postImage.post, { nullable: true })
+    photoUrls?: PostImage[];
 
     @OneToMany(type => Donation, donations => donations.post)
     donations: Donation[];

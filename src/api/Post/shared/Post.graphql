@@ -1,7 +1,10 @@
 type Post {
     id: Int!
-    text: String!
-    
+
+    title: String!
+    description: String!
+    photoUrls: [PostImage]
+
     donations: [Donation]
     writerId: Int
     writer: User!

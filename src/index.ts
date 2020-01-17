@@ -7,7 +7,7 @@ import app from "./app";
 import connectionOption from "./ormConfig";
 
 const PLAY_GROUND: string = "/playground";
-const END_POINT: string = "/endpoint";
+const END_POINT: string = "/graphql";
 const PORT: number = 4000;
 
 const appOptions: Options = {

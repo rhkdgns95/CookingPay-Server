@@ -1,4 +1,4 @@
-export const typeDefs = ["type Donation {\n  id: Int!\n  amount: String!\n  imp_uid: String!\n  contributorId: Int\n  contributor: User!\n  postId: Int\n  post: Post\n  createdAt: String!\n  updatedAt: String\n}\n\ntype Post {\n  id: Int!\n  text: String!\n  donations: [Donation]\n  writerId: Int\n  writer: User!\n  getAmounts: Int\n  createdAt: String!\n  updatedAt: String\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype Query {\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype Mutation {\n  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  name: String!\n  posts: [Post]\n  email: String!\n  password: String!\n  donations: [Donation]\n  createdAt: String!\n  updatedAt: String\n}\n"];
+export const typeDefs = ["type Donation {\n  id: Int!\n  amount: String!\n  imp_uid: String!\n  contributorId: Int\n  contributor: User!\n  postId: Int\n  post: Post\n  createdAt: String!\n  updatedAt: String\n}\n\ntype CreatePostResponse {\n  ok: Boolean!\n  error: String\n  postId: Int\n}\n\ntype Mutation {\n  CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!\n  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!\n}\n\ntype Post {\n  id: Int!\n  title: String!\n  description: String!\n  photoUrls: [PostImage]\n  donations: [Donation]\n  writerId: Int\n  writer: User!\n  getAmounts: Int\n  createdAt: String!\n  updatedAt: String\n}\n\ntype PostImage {\n  id: Int!\n  url: String!\n  postId: Int\n  post: Post!\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype Query {\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  name: String!\n  posts: [Post]\n  email: String!\n  password: String!\n  donations: [Donation]\n  createdAt: String!\n  updatedAt: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -36,13 +36,22 @@ export interface User {
 
 export interface Post {
   id: number;
-  text: string;
+  title: string;
+  description: string;
+  photoUrls: Array<PostImage> | null;
   donations: Array<Donation> | null;
   writerId: number | null;
   writer: User;
   getAmounts: number | null;
   createdAt: string;
   updatedAt: string | null;
+}
+
+export interface PostImage {
+  id: number;
+  url: string;
+  postId: number | null;
+  post: Post;
 }
 
 export interface Donation {
@@ -58,13 +67,26 @@ export interface Donation {
 }
 
 export interface Mutation {
+  CreatePost: CreatePostResponse;
   EmailSignUp: EmailSignUpResponse;
+}
+
+export interface CreatePostMutationArgs {
+  title: string;
+  description: string;
+  photoUrls: Array<string> | null;
 }
 
 export interface EmailSignUpMutationArgs {
   name: string;
   email: string;
   password: string;
+}
+
+export interface CreatePostResponse {
+  ok: boolean;
+  error: string | null;
+  postId: number | null;
 }
 
 export interface EmailSignUpResponse {

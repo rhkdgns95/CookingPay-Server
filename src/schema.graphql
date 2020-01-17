@@ -10,15 +10,35 @@ type Donation {
   updatedAt: String
 }
 
+type CreatePostResponse {
+  ok: Boolean!
+  error: String
+  postId: Int
+}
+
+type Mutation {
+  CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!
+  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
+}
+
 type Post {
   id: Int!
-  text: String!
+  title: String!
+  description: String!
+  photoUrls: [PostImage]
   donations: [Donation]
   writerId: Int
   writer: User!
   getAmounts: Int
   createdAt: String!
   updatedAt: String
+}
+
+type PostImage {
+  id: Int!
+  url: String!
+  postId: Int
+  post: Post!
 }
 
 type EmailSignInResponse {
@@ -36,10 +56,6 @@ type EmailSignUpResponse {
   ok: Boolean!
   error: String
   token: String
-}
-
-type Mutation {
-  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
 }
 
 type GetMyProfileResponse {

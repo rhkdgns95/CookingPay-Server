@@ -10,6 +10,12 @@
 [x] JWT - createJWT
 [x] JWT - decodeJWT
 [x] GetMyProfile, Middleware - privateResolvers
+[x] Entity - PostImage, Post - photoUrls, Resolvers - CreatePost
+[] GetMyPost
+
+## Todo - 2
+[] CreatePost
+[] CreateDonation
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.

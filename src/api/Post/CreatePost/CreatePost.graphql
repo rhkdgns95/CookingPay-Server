@@ -1,0 +1,13 @@
+type CreatePostResponse{
+    ok: Boolean!
+    error: String
+    postId: Int
+}
+
+type Mutation {
+    CreatePost(
+        title: String!
+        description: String!
+        photoUrls: [String]
+    ): CreatePostResponse!
+}

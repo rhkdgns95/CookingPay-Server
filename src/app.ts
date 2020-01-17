@@ -28,8 +28,9 @@ class App {
     }
     
     private jwt = async (req: any, res: Response, next: any): Promise<any> => {
-        const token = req.get('x-jwt');
+        const token = req.get('X-JWT');
         if(token) {
+            console.log("TOKEN: ", token);
             const user: User | undefined = await decodeJWT(token);
             if(user) {
                 req.user = user;
