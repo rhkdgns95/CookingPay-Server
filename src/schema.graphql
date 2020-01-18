@@ -21,6 +21,18 @@ type Mutation {
   EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
 }
 
+type GetAllPostResponse {
+  ok: Boolean!
+  error: String
+  posts: [Post]
+}
+
+type Query {
+  GetAllPost: GetAllPostResponse!
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+  GetMyProfile: GetMyProfileResponse!
+}
+
 type Post {
   id: Int!
   title: String!
@@ -45,11 +57,6 @@ type EmailSignInResponse {
   ok: Boolean!
   error: String
   token: String
-}
-
-type Query {
-  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
-  GetMyProfile: GetMyProfileResponse!
 }
 
 type EmailSignUpResponse {

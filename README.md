@@ -11,10 +11,9 @@
 [x] JWT - decodeJWT
 [x] GetMyProfile, Middleware - privateResolvers
 [x] Entity - PostImage, Post - photoUrls, Resolvers - CreatePost
-[] GetMyPost
+[x] GetAllPost
 
 ## Todo - 2
-[] CreatePost
 [] CreateDonation
 
 ## Install

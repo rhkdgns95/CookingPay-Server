@@ -19,8 +19,8 @@ class Post extends BaseEntity {
     @Column('text')
     description: string;
 
-    @OneToMany(type => PostImage, postImage => postImage.post, { nullable: true })
-    photoUrls?: PostImage[];
+    @OneToMany(type => PostImage, postImage => postImage.post)
+    photoUrls: PostImage[];
 
     @OneToMany(type => Donation, donations => donations.post)
     donations: Donation[];

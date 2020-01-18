@@ -1,0 +1,9 @@
+type GetAllPostResponse {
+    ok: Boolean!
+    error: String
+    posts: [Post]
+}
+
+type Query {
+    GetAllPost: GetAllPostResponse!
+}
