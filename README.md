@@ -28,3 +28,4 @@
 9. yarn add bcryptjs @types/bcryptjs
 10. yarn add jsonwebtoken @types/jsonwebtoken
 11. yarn add cors helmet morgan @types/morgan @types/helmet
+12. yarn add copy

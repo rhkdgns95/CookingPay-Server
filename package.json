@@ -8,6 +8,7 @@
     "babel-runtime": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.11.0",
+    "copy": "^0.3.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "gql-merge": "^0.0.6",
@@ -29,6 +30,10 @@
   "scripts": {
     "dev": "cd src && nodemon -e ts,graphql --exec ts-node index.ts",
     "pretypes": "gql-merge -o ./src/schema.graphql ./src/api/**/*.graphql",
-    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts",
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api",
+    "start": "cd dist && node ."
   }
 }
