@@ -16,10 +16,11 @@ class App {
                 return {
                     req: req.request
                 }
-            }
+            },
         });
         this.middlewares();
     }
+
     private middlewares = (): void => {
         this.app.express.use(helmet());
         this.app.express.use(logger('dev'));

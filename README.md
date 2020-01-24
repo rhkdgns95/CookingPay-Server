@@ -12,6 +12,8 @@
 [x] GetMyProfile, Middleware - privateResolvers
 [x] Entity - PostImage, Post - photoUrls, Resolvers - CreatePost
 [x] GetAllPost
+[x] Deploy - Build
+[x] Deploy - Aws Lambda - No Success.
 
 ## Todo - 2
 [] CreateDonation
@@ -29,3 +31,8 @@
 10. yarn add jsonwebtoken @types/jsonwebtoken
 11. yarn add cors helmet morgan @types/morgan @types/helmet
 12. yarn add copy
+13. npm install -g serverless - AWS
+14. yarn add serverless-plugin-typescript -AWS
+15. npm i serverless-offline serverless-plugin-typescript --save-dev - AWS
+16. npm i @types/aws-lambda --save-dev - AWS
+17. yarn add serverless-offline

@@ -35,5 +35,10 @@
     "build": "tsc",
     "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api",
     "start": "cd dist && node ."
+  },
+  "name": "server",
+  "devDependencies": {
+    "serverless-offline": "^5.12.1",
+    "serverless-plugin-typescript": "^1.1.9"
   }
 }
