@@ -37,6 +37,7 @@ type CreatePostResponse {
 
 type Mutation {
   CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!
+  SendPublicMessage(text: String!): SendPublicMessageResponse!
   EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!
 }
 
@@ -70,6 +71,12 @@ type PostImage {
   url: String!
   postId: Int
   post: Post!
+}
+
+type SendPublicMessageResponse {
+  ok: Boolean!
+  error: String
+  messageId: Int
 }
 
 type PublicMessage {

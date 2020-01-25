@@ -16,6 +16,8 @@
 [x] Deploy - Aws Lambda - No Success.
 [x] Entity - Chat, CommonMessage(PublicMessage, PrivateMessage)
 [x] Bug fixed (Private/PublicMessage - text)
+[x] SendPublicMessage
+[] Pubsub
 
 ## Todo - 2
 

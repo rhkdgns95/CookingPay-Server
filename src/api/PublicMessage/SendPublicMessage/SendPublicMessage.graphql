@@ -1,0 +1,8 @@
+type SendPublicMessageResponse {
+    ok: Boolean!
+    error: String
+    messageId: Int
+}
+type Mutation {
+    SendPublicMessage(text: String!): SendPublicMessageResponse!
+}
