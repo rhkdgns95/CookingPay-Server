@@ -88,6 +88,10 @@ type PublicMessage {
   updatedAt: String
 }
 
+type Subscription {
+  SubscriptionPublicMessage: PublicMessage
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
