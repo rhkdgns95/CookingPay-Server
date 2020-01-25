@@ -14,8 +14,14 @@
 [x] GetAllPost
 [x] Deploy - Build
 [x] Deploy - Aws Lambda - No Success.
+[x] Entity - Chat, CommonMessage(PublicMessage, PrivateMessage)
 
 ## Todo - 2
+[] PublicChat
+[] PrivateChat
+[] Message
+
+
 [] CreateDonation
 
 ## Install

@@ -1,3 +1,21 @@
+type Chat {
+  id: Int!
+  users: [User]!
+  privateMessages: [PrivateMessage]
+  createdAt: String!
+  updatedAt: String
+}
+
+type PrivateMessage {
+  id: Int!
+  chatId: Int
+  chat: Chat!
+  userId: Int!
+  user: User!
+  createdAt: String!
+  updatedAt: String
+}
+
 type Donation {
   id: Int!
   amount: String!
@@ -53,6 +71,14 @@ type PostImage {
   post: Post!
 }
 
+type PublicMessage {
+  id: Int!
+  writerId: Int
+  writer: User!
+  createdAt: String!
+  updatedAt: String
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -78,6 +104,9 @@ type User {
   email: String!
   password: String!
   donations: [Donation]
+  publicMessages: [PublicMessage]
+  privateMessages: [PrivateMessage]
+  chats: [Chat]
   createdAt: String!
   updatedAt: String
 }

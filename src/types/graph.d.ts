@@ -1,4 +1,4 @@
-export const typeDefs = ["type Donation {\n  id: Int!\n  amount: String!\n  imp_uid: String!\n  contributorId: Int\n  contributor: User!\n  postId: Int\n  post: Post\n  createdAt: String!\n  updatedAt: String\n}\n\ntype CreatePostResponse {\n  ok: Boolean!\n  error: String\n  postId: Int\n}\n\ntype Mutation {\n  CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!\n  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!\n}\n\ntype GetAllPostResponse {\n  ok: Boolean!\n  error: String\n  posts: [Post]\n}\n\ntype Query {\n  GetAllPost: GetAllPostResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype Post {\n  id: Int!\n  title: String!\n  description: String!\n  photoUrls: [PostImage]\n  donations: [Donation]\n  writerId: Int\n  writer: User!\n  getAmounts: Int\n  createdAt: String!\n  updatedAt: String\n}\n\ntype PostImage {\n  id: Int!\n  url: String!\n  postId: Int\n  post: Post!\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  name: String!\n  posts: [Post]\n  email: String!\n  password: String!\n  donations: [Donation]\n  createdAt: String!\n  updatedAt: String\n}\n"];
+export const typeDefs = ["type Chat {\n  id: Int!\n  users: [User]!\n  privateMessages: [PrivateMessage]\n  createdAt: String!\n  updatedAt: String\n}\n\ntype PrivateMessage {\n  id: Int!\n  chatId: Int\n  chat: Chat!\n  userId: Int!\n  user: User!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype Donation {\n  id: Int!\n  amount: String!\n  imp_uid: String!\n  contributorId: Int\n  contributor: User!\n  postId: Int\n  post: Post\n  createdAt: String!\n  updatedAt: String\n}\n\ntype CreatePostResponse {\n  ok: Boolean!\n  error: String\n  postId: Int\n}\n\ntype Mutation {\n  CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!\n  EmailSignUp(name: String!, email: String!, password: String!): EmailSignUpResponse!\n}\n\ntype GetAllPostResponse {\n  ok: Boolean!\n  error: String\n  posts: [Post]\n}\n\ntype Query {\n  GetAllPost: GetAllPostResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype Post {\n  id: Int!\n  title: String!\n  description: String!\n  photoUrls: [PostImage]\n  donations: [Donation]\n  writerId: Int\n  writer: User!\n  getAmounts: Int\n  createdAt: String!\n  updatedAt: String\n}\n\ntype PostImage {\n  id: Int!\n  url: String!\n  postId: Int\n  post: Post!\n}\n\ntype PublicMessage {\n  id: Int!\n  writerId: Int\n  writer: User!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  name: String!\n  posts: [Post]\n  email: String!\n  password: String!\n  donations: [Donation]\n  publicMessages: [PublicMessage]\n  privateMessages: [PrivateMessage]\n  chats: [Chat]\n  createdAt: String!\n  updatedAt: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -57,6 +57,35 @@ export interface User {
   email: string;
   password: string;
   donations: Array<Donation> | null;
+  publicMessages: Array<PublicMessage> | null;
+  privateMessages: Array<PrivateMessage> | null;
+  chats: Array<Chat> | null;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface PublicMessage {
+  id: number;
+  writerId: number | null;
+  writer: User;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface PrivateMessage {
+  id: number;
+  chatId: number | null;
+  chat: Chat;
+  userId: number;
+  user: User;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export interface Chat {
+  id: number;
+  users: Array<User>;
+  privateMessages: Array<PrivateMessage> | null;
   createdAt: string;
   updatedAt: string | null;
 }

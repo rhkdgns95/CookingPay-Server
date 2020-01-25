@@ -1,8 +1,11 @@
-import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, Entity, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
+import { BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, Entity, OneToMany, BeforeInsert, BeforeUpdate, ManyToMany, JoinTable } from "typeorm";
 import Post from "../Post/Post";
 import Donation from "../Donation/Donation";
 import { IsEmail } from "class-validator";
 import bcrypt from "bcryptjs";
+import PublicMessage from "../Message/PublicMessage";
+import Chat from "../Chat/Chat";
+import PrivateMessage from "../Message/PrivateMessage";
 
 @Entity('users')
 class User extends BaseEntity {
@@ -25,6 +28,16 @@ class User extends BaseEntity {
 
     @OneToMany(type => Donation, donation => donation.post)
     donations: Donation[];
+
+    @OneToMany(type => PublicMessage, publicMessages => publicMessages.writer)
+    publicMessages: PublicMessage[];
+
+    @OneToMany(tpe => PrivateMessage, privateMessage => privateMessage.user)
+    privateMessages: PrivateMessage[];
+
+    @ManyToMany(type => Chat, chat => chat.users)
+    @JoinTable()
+    chats: Chat[];
 
     public comparePassword = (password: string) => bcrypt.compareSync(password, this.password);
     private hashPassword = (password: string) => bcrypt.hashSync(password);

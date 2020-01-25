@@ -1,0 +1,9 @@
+type PublicMessage {
+    id: Int!
+
+    writerId: Int
+    writer: User!
+
+    createdAt: String!
+    updatedAt: String
+}
