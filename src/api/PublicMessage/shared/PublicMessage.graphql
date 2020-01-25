@@ -1,6 +1,7 @@
 type PublicMessage {
     id: Int!
-
+    text: String!
+    
     writerId: Int
     writer: User!
 

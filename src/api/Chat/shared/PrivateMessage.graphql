@@ -1,6 +1,7 @@
 type PrivateMessage {
     id: Int!
-
+    text: String!
+    
     chatId: Int
     chat: Chat!
     

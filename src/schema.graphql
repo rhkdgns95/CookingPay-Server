@@ -8,6 +8,7 @@ type Chat {
 
 type PrivateMessage {
   id: Int!
+  text: String!
   chatId: Int
   chat: Chat!
   userId: Int!
@@ -73,6 +74,7 @@ type PostImage {
 
 type PublicMessage {
   id: Int!
+  text: String!
   writerId: Int
   writer: User!
   createdAt: String!
