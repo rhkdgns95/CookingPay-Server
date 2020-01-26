@@ -18,13 +18,12 @@
 [x] Bug fixed (Private/PublicMessage - text)
 [x] SendPublicMessage
 [x] PubSub - PublicMessage / Subscription - SubscriptionPublicMessage
+[x] GetPublicMessage - No Login: Fake Message
 
 ## Todo - 2
-
-[] PublicChat
-[] PrivateChat
-[] Message
-
+[] User ProfileImg
+[] UserTimeline
+[] PrivateChat ( User 1:1 Chat)
 
 [] CreateDonation
 

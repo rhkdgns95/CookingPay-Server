@@ -1,0 +1,9 @@
+type GetPublicMessageResponse {
+    ok: Boolean!
+    error: String
+    publicMessages: [PublicMessage]
+}
+
+type Query {
+    GetPublicMessage: GetPublicMessageResponse!
+}

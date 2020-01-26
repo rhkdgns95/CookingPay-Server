@@ -49,6 +49,7 @@ type GetAllPostResponse {
 
 type Query {
   GetAllPost: GetAllPostResponse!
+  GetPublicMessage: GetPublicMessageResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   GetMyProfile: GetMyProfileResponse!
 }
@@ -71,6 +72,12 @@ type PostImage {
   url: String!
   postId: Int
   post: Post!
+}
+
+type GetPublicMessageResponse {
+  ok: Boolean!
+  error: String
+  publicMessages: [PublicMessage]
 }
 
 type SendPublicMessageResponse {
