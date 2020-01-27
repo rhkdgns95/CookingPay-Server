@@ -17,8 +17,9 @@ const SUBSCRIPTION_ENDPOINT: string = "/subscription";
  *  subscriptions 
  *  - onConnect는 Subscription이 실행될때 제일먼저 콜백된다.
  *    > 로그인 유저를 판별하기 위한용도이다. 
- *    >  로그인 하지 않는경우는 다른 FAKE메시지를 구독하도록 함.
- *    >  return 값이 GraphqlServer의 context에서 req.connection에 
+ *    > 로그인 하지 않는경우는 다른 FAKE메시지를 구독하도록 함.
+ *    > return 값이 GraphqlServer의 context에서 req.connection에 
+ *    > 추가사항: 서버측과 클라이언트 측 모두에서 동작한다. (client의 connectionParams에 토큰값 설정함.)
  */ 
 const appOptions: Options = {
     port: PORT,
@@ -28,6 +29,7 @@ const appOptions: Options = {
         path: SUBSCRIPTION_ENDPOINT,
         onConnect: async connectionParams => {
             const token = connectionParams["X-JWT"];
+            // console.log("CURRENT_ TOKEN: ", token);
             // console.log("Subscription [1]");
             if(token) {
                 const user: User | undefined = await decodeJWT(token);

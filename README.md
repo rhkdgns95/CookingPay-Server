@@ -19,6 +19,7 @@
 [x] SendPublicMessage
 [x] PubSub - PublicMessage / Subscription - SubscriptionPublicMessage
 [x] GetPublicMessage - No Login: Fake Message
+[] GetPublicMessage - relations['writer']
 
 ## Todo - 2
 [] User ProfileImg

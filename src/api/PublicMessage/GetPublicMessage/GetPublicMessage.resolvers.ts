@@ -9,7 +9,8 @@ const resolvers: Resolvers = {
             const user: User | undefined = req?.user || undefined;
             try {
                 let publicMessages: Array<PublicMessage> = await PublicMessage.find({
-                    order: { createdAt: "ASC" }   
+                    order: { createdAt: "ASC" },
+                    relations: ['writer']
                 });
                 // No Login User: text - Fake Message
                 return {
