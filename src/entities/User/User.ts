@@ -20,6 +20,9 @@ class User extends BaseEntity {
     @IsEmail(undefined, { message: "잘못된 이메일 형식입니다." })
     email: string;
     
+    @Column({ type: 'text', nullable: true })
+    photo: string | null;
+    
     @Column('text')
     password: string;
     

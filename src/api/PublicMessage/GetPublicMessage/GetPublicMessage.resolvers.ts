@@ -5,9 +5,10 @@ import PublicMessage from "../../../entities/Message/PublicMessage";
 
 const resolvers: Resolvers = {
     Query: {
-        GetPublicMessage: async(_, __, { req }): Promise<GetPublicMessageResponse> => {
+        GetPublicMessage: async(_, __, { req, publicMessageUsers }): Promise<GetPublicMessageResponse> => {
             const user: User | undefined = req?.user || undefined;
             try {
+                console.log("구독자 유저들의 ID: ", publicMessageUsers);
                 let publicMessages: Array<PublicMessage> = await PublicMessage.find({
                     order: { createdAt: "ASC" },
                     relations: ['writer']

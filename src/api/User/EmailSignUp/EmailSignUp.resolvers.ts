@@ -21,7 +21,8 @@ const resolvers: Resolvers = {
                 /** [1] */
                 if(!existUser) {
                     const user: User = await User.create({
-                        ...args
+                        ...args,
+                        photo: args.photo
                     });
                     /** [2] */
                     const data = await validate(user);

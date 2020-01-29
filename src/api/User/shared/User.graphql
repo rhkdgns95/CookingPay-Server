@@ -4,6 +4,7 @@ type User {
     posts: [Post]
     email: String!
     password: String!
+    photo: String
     donations: [Donation]
     publicMessages: [PublicMessage]
     privateMessages: [PrivateMessage]

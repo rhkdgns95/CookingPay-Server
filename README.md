@@ -2,31 +2,31 @@
 : 기부하기 서버
 
 ## Todo
-[x] Graphql-Typescript Settings.
-[x] Connection DB - typeorm, .env
-[x] Entities - User, Post, Donation
-[x] User - hashPassword, EmailSignUp
-[x] EmailSignIn
-[x] JWT - createJWT
-[x] JWT - decodeJWT
-[x] GetMyProfile, Middleware - privateResolvers
-[x] Entity - PostImage, Post - photoUrls, Resolvers - CreatePost
-[x] GetAllPost
-[x] Deploy - Build
-[x] Deploy - Aws Lambda - No Success.
-[x] Entity - Chat, CommonMessage(PublicMessage, PrivateMessage)
-[x] Bug fixed (Private/PublicMessage - text)
-[x] SendPublicMessage
-[x] PubSub - PublicMessage / Subscription - SubscriptionPublicMessage
-[x] GetPublicMessage - No Login: Fake Message
-[] GetPublicMessage - relations['writer']
+- [x] Graphql-Typescript Settings.
+- [x] Connection DB - typeorm, .env
+- [x] Entities - User, Post, Donation
+- [x] User - hashPassword, EmailSignUp
+- [x] EmailSignIn
+- [x] JWT - createJWT
+- [x] JWT - decodeJWT
+- [x] GetMyProfile, Middleware - privateResolvers
+- [x] Entity - PostImage, Post - photoUrls, Resolvers - CreatePost
+- [x] GetAllPost
+- [x] Deploy - Build
+- [x] Deploy - Aws Lambda - No Success.
+- [x] Entity - Chat, CommonMessage(PublicMessage, PrivateMessage)
+- [x] Bug fixed (Private/PublicMessage - text)
+- [x] SendPublicMessage
+- [x] PubSub - PublicMessage / Subscription - SubscriptionPublicMessage
+- [x] GetPublicMessage - No Login: Fake Message
+- [x] GetPublicMessage - relations['writer']
+- [x] EmailSignUp - Photo
+- [] UpdateMyProfile
 
 ## Todo - 2
-[] User ProfileImg
-[] UserTimeline
-[] PrivateChat ( User 1:1 Chat)
-
-[] CreateDonation
+- [] UserTimeline
+- [] PrivateChat ( User 1:1 Chat)
+- [] CreateDonation
 
 ## Install
 1. yarn add graphql graphql-yoga typescript ts-node nodemon.

@@ -3,7 +3,7 @@ dotenv.config();
 
 import { createConnection } from 'typeorm';
 import { Options } from "graphql-yoga";
-import app from "./app";
+import app, { pushPublicChatUser, popPublicChatUser } from "./app";
 import connectionOption from "./ormConfig";
 import User from "./entities/User/User";
 import { decodeJWT } from "./utils/decodeJWT";
@@ -25,15 +25,17 @@ const appOptions: Options = {
     port: PORT,
     playground: PLAY_GROUND,
     endpoint: GRPAHQL_ENDPOINT,
-    subscriptions: {
+    subscriptions: { 
         path: SUBSCRIPTION_ENDPOINT,
         onConnect: async connectionParams => {
+            console.log("connectionParams: ", connectionParams);
             const token = connectionParams["X-JWT"];
             // console.log("CURRENT_ TOKEN: ", token);
             // console.log("Subscription [1]");
             if(token) {
                 const user: User | undefined = await decodeJWT(token);
                 if(user) {
+                    pushPublicChatUser(user.id);
                     return {
                         currentUser: user
                     };
@@ -47,6 +49,15 @@ const appOptions: Options = {
                     currentUser: null
                 };
             }
+        },
+        onDisconnect: async (webSocket, context, data) => {
+            const initialContext = await context.initPromise;
+            const currentUser: User | undefined = initialContext.currentUser;
+            if(currentUser) {
+                popPublicChatUser(currentUser.id);
+                console.log("currentUser.name: ", currentUser.name);
+            }
+            // console.log("disconnectionParams: ", disconnectionParams);
         }
     }
 };
