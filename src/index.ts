@@ -22,7 +22,7 @@ const SUBSCRIPTION_ENDPOINT: string = "/subscription";
  *    > 추가사항: 서버측과 클라이언트 측 모두에서 동작한다. (client의 connectionParams에 토큰값 설정함.)
  */ 
 const appOptions: Options = {
-    port: PORT,
+    port: process.env.PORT || PORT,
     playground: PLAY_GROUND,
     endpoint: GRPAHQL_ENDPOINT,
     subscriptions: { 

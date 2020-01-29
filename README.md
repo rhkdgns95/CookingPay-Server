@@ -69,3 +69,7 @@
 > > > 정리1: 약간의 낭비되는 소스는 SendPublicMessage의 resolvers에서 pubSub에 로그인과 로그아웃에 맞는 채널 2가지에 전송한다는 단점이 존재. 
 > > > 정리2: withFilter()안에 함수로는 첫번째와 두번째의 함수는 다르다. withFilter첫번째 함수는 resolvers의 함수가 들어가며, 두번쨰 인자로는 Filter할 수 있는 함수가 들어간다. 메시지요소인 payload값을 확인가능하다.
 > > > 정리3: Subscription하는 유저는 index.ts에서 onConnect에서 context에 currentUser값은 다른 resolvers에서 실행되지 않는다. Subscription하는 유저가 subscribe할때 실행되어서 subscribe의 resolvers의 세번째 인자로만 들어간다. - 이내용은 다음을 이해하도록 하자. [GraphqlServer의 resolvers 함수 인자 + subscriptions의 onConnect()의 리턴 객체 ] 
+
+## Study
+- Heroku
+ > Heroku의 서버 PORT는 코드상 직접 넣어주면 에러가발생. H10 그래서 환경변수로 설정하여 실행해주도록 한다.
