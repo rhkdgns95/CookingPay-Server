@@ -1,6 +1,6 @@
 import { GraphQLServer, PubSub } from 'graphql-yoga';
 import helmet from "helmet";
-// import logger from "morgan";
+import logger from "morgan";
 import cors from "cors";
 import schema from "./schema";
 import User from './entities/User/User';
@@ -60,7 +60,7 @@ class App {
 
     private middlewares = (): void => {
         this.app.express.use(helmet());
-        // this.app.express.use(logger('dev'));
+        this.app.express.use(logger('dev'));
         this.app.express.use(cors());
         this.app.express.use(this.jwt as any);
     }
