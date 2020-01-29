@@ -18,6 +18,7 @@ import { decodeJWT } from "./utils/decodeJWT";
 export const CHANNEL_PUBLIC_MESSAGE: string = "PUBLIC_CHAT";
 export const CHANNEL_PUBLIC_MESSAGE_FAKE: string = "PUBLIC_CHAT_FAKE";
 
+
 class App {
     public app: GraphQLServer;
     public pubSub: PubSub;
