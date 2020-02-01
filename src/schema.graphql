@@ -38,7 +38,9 @@ type CreatePostResponse {
 type Mutation {
   CreatePost(title: String!, description: String!, photoUrls: [String]): CreatePostResponse!
   SendPublicMessage(text: String!): SendPublicMessageResponse!
+  DeleteImage: DeleteImageResponse!
   EmailSignUp(name: String!, email: String!, password: String!, photo: String): EmailSignUpResponse!
+  UpdateMyProfile(name: String, password: String, photo: String): UpdateMyProfileResponse!
 }
 
 type GetAllPostResponse {
@@ -100,6 +102,11 @@ type Subscription {
   SubscriptionPublicMessage: PublicMessage
 }
 
+type DeleteImageResponse {
+  ok: Boolean!
+  error: String
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -131,10 +138,16 @@ type User {
   email: String!
   password: String!
   photo: String
+  publicId: String
   donations: [Donation]
   publicMessages: [PublicMessage]
   privateMessages: [PrivateMessage]
   chats: [Chat]
   createdAt: String!
   updatedAt: String
+}
+
+type UpdateMyProfileResponse {
+  ok: Boolean!
+  error: String
 }

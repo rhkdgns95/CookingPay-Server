@@ -21,7 +21,7 @@
 - [x] GetPublicMessage - No Login: Fake Message
 - [x] GetPublicMessage - relations['writer']
 - [x] EmailSignUp - Photo
-- [] UpdateMyProfile
+- [x] UpdateMyProfile / Utils - Cloudniary.v2(Destroy)
 
 ## Todo - 2
 - [] UserTimeline
@@ -46,7 +46,7 @@
 15. npm i serverless-offline serverless-plugin-typescript --save-dev - AWS
 16. npm i @types/aws-lambda --save-dev - AWS
 17. yarn add serverless-offline
-
+18. yarn add cloudinary
 
 ## Subscription
 > [주의점]

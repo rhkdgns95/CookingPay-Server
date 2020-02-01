@@ -5,6 +5,7 @@ type User {
     email: String!
     password: String!
     photo: String
+    publicId: String
     donations: [Donation]
     publicMessages: [PublicMessage]
     privateMessages: [PrivateMessage]

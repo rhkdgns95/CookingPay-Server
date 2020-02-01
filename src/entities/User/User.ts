@@ -23,6 +23,26 @@ class User extends BaseEntity {
     @Column({ type: 'text', nullable: true })
     photo: string | null;
     
+    /**
+     *   get publicId():
+     *   
+     *   photo가 있는경우, Cloudinary의 PublicId를 가져온다.
+     *   photo: https://cloudniary~/../../PUBLIC_ID.jpg | .png 형식으로 저장됨.
+     *   필요한건 publicId이므로 문자열을 잘라 반환한다. (UpdateMyProfile에서 사용)
+     */
+    get publicId() { 
+        if(this.photo) {
+            const url = this.photo;
+            const start = url.lastIndexOf("/");
+            const end = url.lastIndexOf(".");
+            const deletedEndUrl = url.substr(0, end);
+            const publicId: string = deletedEndUrl.substr(start + 1);
+            return publicId;
+        } else {
+            return null;
+        }
+    }
+
     @Column('text')
     password: string;
     
