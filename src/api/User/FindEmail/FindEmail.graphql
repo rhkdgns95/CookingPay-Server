@@ -1,0 +1,9 @@
+type FindEmailResponse {
+    ok: Boolean!
+    error: String
+    email: String
+}
+
+type Query {
+    FindEmail(name: String!): FindEmailResponse!
+}

@@ -22,6 +22,9 @@
 - [x] GetPublicMessage - relations['writer']
 - [x] EmailSignUp - Photo
 - [x] UpdateMyProfile / Utils - Cloudniary.v2(Destroy)
+- [] FindEmail
+- [] SendTempPasswordToEmail
+
 
 ## Todo - 2
 - [] UserTimeline
